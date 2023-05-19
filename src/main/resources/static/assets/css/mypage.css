@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+#bg-color {
+    background: rgb(240, 240, 240);
+}
+
+/* 상단 디테일 영역 */
+.mypage-informaiton-container {
+    width: 1000px;
+    height: 200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    /* * border-bottom: 2px solid #5e5e5e; 
+    /* background-color: rgb(243, 243, 243); */
+
+} 
+
+.title {
+    width: 1000px;
+    margin: 150px auto 0;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* 디테일 > 정보 */
+.main-informaiton {
+    width: 450px;
+    display: flex;
+    padding: 10px;
+    /* padding-right: 20px; */
+    border-right: 1px solid rgb(200, 200, 200);
+}
+
+.name-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.nickname {
+    width: 200px;
+    text-align: center;
+    padding-top: 30px;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+.profile {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(200, 200, 200);
+    border-radius: 100px;
+    margin-right: 20px;
+}
+
+/* 수정 영역 */
+.modify-btn {
+    background-color: rgb(100, 100, 100);
+    width: 90px;
+    padding: 5px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    color: white;
+}
+.modify-btn span{
+    font-size: 15px;
+}
+
+.than-icon {
+    width: 20px;
+}
+
+/* 내가 쓴 글 영역 */
+.my-count-wrapper {
+    width: 60%;
+    display: flex;
+    text-align: left;
+    padding: 10px;
+    padding-left: 50px;
+}
+
+.write-count-wrapper,
+.comment-count-wrapper,
+.stamp-count-wrapper {
+    width: 20%;
+}
+
+.write-title,
+.comment-title,
+.stamp-title {
+    font-size: 17px;
+}
+
+.write-count,
+.comment-count,
+.stamp-count {
+    margin-top: 10px;
+    font-size: 50px;
+    font-weight: 200;
+}
+
+.stamp-count{
+    display: flex;
+    align-items: baseline;
+}
+
+.total-stamp{
+    color: rgb(200, 200, 200);
+    font-weight: 100;
+    font-size: 25px;
+}
+
+
+
+
+/* 게시글 영역 */
+.mypage-write-container {
+    width: 1000px;
+    margin: 50px auto 0;
+}
+
+.division-boardNo,
+.board-boardNo {
+    width: 9%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+.division-title,
+.board-title {
+    width: 50%;
+    text-align: left;
+}
+
+.division-writer,
+.board-writer {
+    width: 7%;
+    text-align-last: left;
+}
+
+.division-writen-date,
+.board-writen-date {
+    width: 7%;
+    text-align: center;
+}
+
+.division-view-count,
+.board-view-count {
+    width: 7%;
+    text-align: center;
+}
+
+.division-like-it,
+.board-like-it {
+    width: 7%;
+    text-align: center;
+}
+
+
+/* 중 주제, 작성글 공통영역 */
+.division-wrapper,
+.board-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+.division-wrapper {
+    padding: 15px 0;
+    border-top: 1.5px solid rgb(100, 100, 100);
+    font-weight: 400;
+}
+
+.board-container {
+    padding: 10px 0;
+    border-top: 0.5px solid rgb(200, 200, 200);
+    font-size: 14px;
+}
+
+/* 마지막 게시글 border-bottom */
+.board-container:last-of-type {
+    border-bottom: 0.5px solid rgb(200, 200, 200);
+}

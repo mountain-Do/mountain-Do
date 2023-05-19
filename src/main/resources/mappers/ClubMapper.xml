@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.ClubMapper">
+<!-- resultType : 구문의 결과를 받을 alias나 풀 클래스명-->
+
+    <select id="findAll" resultType="club">
+        SELECT
+        club_board_no, account_id,
+        club_title, club_content,
+        club_area, club_reg_date,
+        club_modify_date, club_recruit_deadline,
+        club_recruit_type, club_recruit_count
+        from club
+        <if test="clubRecruitType =='소모임'">
+            WHERE club_recruit_type LIKE CONCAT('%',#{clubRecruitType},'%')
+        </if>
+        <if test="clubRecruitType =='정기모임'">
+            WHERE club_recruit_type LIKE CONCAT('%',#{clubRecruitType},'%')
+        </if>
+        ORDER BY club_board_no DESC
+        LIMIT #{pageStart},#{amount}
+
+    </select>
+
+    <select id="findOne" resultType="club">
+        SELECT
+        club_board_no, account_id,
+        club_title, club_content,
+        club_area, club_reg_date,
+        club_modify_date, club_recruit_deadline,
+        club_recruit_type, club_recruit_count
+        from club
+        WHERE club_board_no=#{clubBoardNo}
+    </select>
+
+
+    <insert id="save">
+        INSERT INTO club
+        (account_id, club_title, club_content,
+        club_area, club_reg_date, club_modify_date,
+        club_recruit_deadline, club_recruit_type,
+        club_recruit_count)
+        values (#{accountId},#{clubTitle},#{clubContent}
+        ,#{clubArea} ,#{clubRegDate},#{clubModifyDate}
+        ,#{clubRecruitDeadline}
+        ,#{clubRecruitType} ,#{clubRecruitCount})
+    </insert>
+
+    <delete id="deleteByNo">
+        DELETE FROM club
+        WHERE club_board_no=#{clubBoardNo};
+    </delete>
+
+
+    <select id="count" resultType="int">
+        SELECT COUNT(*)
+        FROM club
+        <if test="clubRecruitType =='소모임'">
+            WHERE club_recruit_type LIKE CONCAT('%',#{clubRecruitType},'%')
+        </if>
+        <if test="clubRecruitType =='정기모임'">
+            WHERE club_recruit_type LIKE CONCAT('%',#{clubRecruitType},'%')
+        </if>
+    </select>
+
+
+</mapper>

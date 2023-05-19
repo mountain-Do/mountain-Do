@@ -1,0 +1,85 @@
+.header-container {
+    height: 80px;
+    color: white;
+    background-color: black;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    position: fixed;
+}
+
+.header-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 40px;
+}
+
+.category-wrapper,
+.login-wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.category-wrapper a {
+    color: white;
+}
+
+.category-wrapper li {
+    width: 85px;
+    text-align: center;
+}
+
+.logo {
+    height: 17px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* 로그인 버튼 영역 */
+.signUp-btn,
+.signIn-btn,
+.logout-btn {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.signUp-btn {
+    color: white;
+}
+
+.signIn-btn {
+    padding: 5px 14px;
+    background-color: white;
+    color: black;
+    border-radius: 50px;
+    margin-left: 20px;
+}
+
+/* 로그인 후 */
+.afterLogin-wrapper {
+    display: flex;
+    color: white;
+    align-items: center;
+}
+
+.afterLogin-wrapper li a {
+    color: white;
+}
+
+.logout-btn {
+    /* width: 50px; */
+}
+
+.myPage-btn {
+    width: 40px;
+    height: 40px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 50px;
+    margin-left: 20px;
+}

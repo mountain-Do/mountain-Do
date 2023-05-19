@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.replymapper.SecondhandReplyMapper">
+
+    <insert id="register">
+        INSERT INTO secondhand_reply
+            (secondhand_board_no, secondhand_reply_content, secondhand_reply_writer)
+        VALUES
+            (#{secondhandBoardNo}, #{secondhandReplyContent}, ${secondhandReplyWriter})
+    </insert>
+
+    <update id="modify">
+        UPDATE secondhand_reply
+        SET secondhand_reply_content = #{secondhandReplyContent}
+        WHERE secondhand_reply_no = #{secondhandReplyNo}
+    </update>
+
+    <delete id="remove">
+        DELETE FROM secondhand_reply
+        WHERE secondhand_reply_no = #{secondhandReplyNo}
+    </delete>
+
+    <select id="findAll" resultType="secondhandReply">
+        SELECT
+            A.secondhand_reply_no, A.secondhand_reply_content, A.secondhand_reply_writer, A.secondhand_reply_date, B.secondhand_board_no        FROM feed_reply A, feed B
+        WHERE A.secondhand_board_no = B.secondhand_board_no
+        ORDER BY secondhand_reply_no
+            LIMIT #{p.pageStart}, #{p.amount}
+    </select>
+
+    <select id="findOne" resultType="secondhandReply">
+        SELECT
+            secondhand_reply_no, secondhand_reply_content, secondhand_reply_writer, secondhand_reply_date, secondhand_board_no
+        FROM secondhand_reply
+        WHERE secondhand_reply_no = #{secondhandReplyNo}
+    </select>
+</mapper>

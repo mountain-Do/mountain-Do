@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Urbanist:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* 메인 이미지 */
+/* #bg-color{
+    background-color: rgb(240, 240, 240);
+} */
+
+.main-img {
+    width: 55%;
+    height: 320px;
+    background-color: lightgray;
+    margin-bottom: 30px;
+    margin: 50px auto 50px;
+    background: url(jpg/issue1.jpg);
+    background-size: 100%;
+    background-position: 0 -150px;
+    border-radius: 10px;
+}
+
+.review-wrapper {
+    margin: 30px auto;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* 상단 대주제 */
+.review-main-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    /* background-color: aqua; */
+    margin-bottom: 20px;
+}
+
+.review-main-title {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+/* 공지 숨기기 */
+.hide-admin {
+    display: flex;
+    align-items: center;
+
+}
+
+.hide-admin-text {
+    font-size: 14px;
+}
+
+.hide-admin-btn {
+    width: 17px;
+    height: 17px;
+    border-radius: 1px;
+    margin-right: 5px;
+    border: 1px solid gray;
+}
+
+.hide-admin-check{
+    background-color: rgb(100, 100, 100);
+}
+#choice{
+    width: 40px;
+    margin-left: 5px;
+
+}
+/* 주제, 작성글 영역 정하기 */
+.division-boardNo,
+.board-boardNo {
+    width: 9%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+.division-title,
+.board-title {
+    width: 50%;
+    text-align: left;
+}
+
+.division-writer,
+.board-writer {
+    width: 7%;
+    text-align-last: left;
+}
+
+.division-writen-date,
+.board-writen-date {
+    width: 7%;
+    text-align: center;
+}
+
+.division-view-count,
+.board-view-count {
+    width: 7%;
+    text-align: center;
+}
+
+.division-like-it,
+.board-like-it {
+    width: 7%;
+    text-align: center;
+}
+
+
+/* 중 주제, 작성글 공통영역 */
+.division-wrapper,
+.board-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 300;
+}
+
+.division-wrapper {
+    padding: 15px 0;
+    border-top: 1.5px solid rgb(100, 100, 100);
+    font-weight: 400;
+}
+
+.board-container {
+    padding: 10px 0;
+    border-top: 0.5px solid rgb(200, 200, 200);
+    font-size: 14px;
+}
+
+/* 마지막 게시글 border-bottom */
+.board-container:last-of-type {
+    border-bottom: 0.5px solid rgb(200, 200, 200);
+}
+
+/* 글쓰기 버튼 */
+.write-btn {
+    display: flex;
+    margin-left: auto;
+    border: none;
+    padding: 7px 20px;
+    font-weight: 300;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.write-btn:hover {
+    background-color: #b7d15a;
+    color: white;
+}
+
+/* 관리자 게시물 add classlist 나중에 */
+.admin-write {
+    width: 50%;
+    padding: 2px 10px;
+    /* color: #f63b3e; */
+    color: white;
+    border-radius: 2px;
+    /* background-color: #fff5f5; */
+    background-color: #b7d15a;
+    border: 0.5px solid #d4e78e;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.admin-write-title {
+    font-weight: 500;
+    color: #9eb842;
+}
+
+
+
+/* js로 설정해줘야 함 */
+.button-active{
+    background-color: #ffffff;
+    border: 1px solid rgb(200, 200, 200);
+    font-weight: 400;
+}
+
+/* 페이지 스타일 */
+/* pagination style */
+.bottom-section {
+    display: flex;
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.bottom-section nav {
+    flex: 1;
+    justify-content: center;
+}
+
+
+.pagination-custom a {
+    color: #444 !important;
+}
+
+.pagination-custom li.active a,
+.pagination-custom li:hover a {
+    background: #333 !important;
+    color: #fff !important;
+}

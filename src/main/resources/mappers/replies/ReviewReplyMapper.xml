@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.replymapper.ReviewReplyMapper">
+
+    <insert id="register">
+        INSERT INTO review_reply
+            (review_board_no, review_reply_content, review_reply_writer)
+        VALUES
+            (#{reviewBoardNo}, #{reviewReplyContent}, ${reviewReplyWriter})
+    </insert>
+
+    <update id="modify">
+        UPDATE review_reply
+        SET review_reply_content = #{reviewReplyContent}
+        WHERE review_reply_no = #{reviewReplyNo}
+    </update>
+
+    <delete id="remove">
+        DELETE FROM review_reply
+        WHERE review_reply_no = #{reviewReplyNo}
+    </delete>
+
+    <select id="findAll" resultType="reviewReply">
+        SELECT
+            A.review_reply_no, A.review_reply_content, A.review_reply_writer, A.review_reply_date, B.review_board_no
+        FROM review_reply A, review B
+        WHERE A.review_board_no = B.review_board_no
+        ORDER BY review_reply_no
+        LIMIT #{p.pageStart}, #{p.amount}
+    </select>
+
+    <select id="findOne" resultType="feedReply">
+        SELECT
+            feed_reply_no, feed_reply_content, feed_reply_writer, feed_reply_date, feed_board_no
+        FROM feed_reply
+        WHERE feed_reply_no = #{feedReplyNo}
+    </select>
+
+</mapper>

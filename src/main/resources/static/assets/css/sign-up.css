@@ -1,0 +1,123 @@
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* background-color: #072000; */
+    background-color: #1e1d21;
+}
+
+.container {
+    width: 50vw;
+    min-width: 700px;
+    margin: 200px auto;
+}
+
+span[id] {
+    display: block;
+    width: 200px;
+    padding: 5px 0 0 15px;
+}
+
+/* 회원가입 상단부 */
+.sign-up-header {
+    padding: 30px 0;
+    text-align: center;
+    background: #ffffff;
+}
+
+.head1 {
+    font-size: 2.2em;
+    font-weight: 600;
+    /* color: #1c5800; */
+    color: #030303;
+    margin-bottom: 30px;
+}
+
+.head2 {
+    font-weight: 500;
+}
+.head2 :first-child{
+    margin-bottom: 5px;
+}
+
+/* 회원가입 중앙부 */
+.sign-up-body {
+    padding: 50px 0;
+    background-color: #ebebeb;
+}
+
+
+.sign-up-body form ul {
+    /* border: 1px solid #000; */
+    padding: 0;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 50px auto;
+}
+
+.sign-up-body #signUpForm li {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 50px;
+    /* margin-left: 140px; */
+    list-style: none;
+}
+
+.sign-up-body #signUpForm li div {
+    width: 150px;
+}
+.sign-up-body #signUpForm ul li span{
+    width: 420px;
+}
+
+.sign-up-body #signUpForm li .form-control {
+    width: 420px;
+    height: 40px;
+    padding-left: 10px;
+    border: 2px solid #d9d9de;
+    border-radius: 10px;
+}
+
+
+/* 회원가입 하단부 */
+.sign-up-btn {
+    /* border: 1px solid #000; */
+    padding: 30px 0;
+    margin-bottom: 30px;
+}
+
+.sign-up-btn .btn {
+    background:#494949;
+    margin: auto;
+
+    width: 585px;
+    height: 40px;
+    border-style: none;
+    border-radius: 3px;
+
+    font-size: 1em;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+}
+
+/* 기타 */
+.del-btn {
+    outline: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgb(255, 0, 140);
+    opacity: 0;
+    color: #fff;
+    font-weight: 700;
+    font-size: 25px;
+    cursor: pointer;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.replymapper.ClubReplyMapper">
+
+    <insert id="register">
+        INSERT INTO club_reply
+            (club_board_no, club_reply_content, club_reply_writer)
+        VALUES
+            (#{clubBoardNo}, #{clubReplyContent}, ${clubReplyWriter})
+    </insert>
+
+    <update id="modify">
+        UPDATE club_reply
+        SET club_reply_content = #{clubReplyContent}
+        WHERE club_reply_no = #{clubReplyNo}
+    </update>
+
+    <delete id="remove">
+        DELETE FROM club_reply
+        WHERE club_reply_no = #{clubReplyNo}
+    </delete>
+
+    <select id="findAll" resultType="clubReply">
+        SELECT
+            A.club_reply_no, A.club_reply_content, A.club_reply_writer, A.club_reply_date, B.club_board_no
+        FROM club_reply A, club B
+        WHERE A.club_board_no = B.club_board_no
+        ORDER BY club_reply_no
+            LIMIT #{p.pageStart}, #{p.amount}
+    </select>
+
+    <select id="findOne" resultType="clubReply">
+        SELECT
+            club_reply_no, club_reply_content, club_reply_writer, club_reply_date, feed_board_no
+        FROM club_reply
+        WHERE club_reply_no = #{clubReplyNo}
+    </select>
+</mapper>

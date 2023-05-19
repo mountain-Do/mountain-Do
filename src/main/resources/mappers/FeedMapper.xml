@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.FeedMapper">
+    <!--    #{} 안에는 getter가 들어감-->
+
+
+    <select id="findAll" resultType="feed">
+        SELECT
+        feed_board_no, account_id, feed_title, feed_content, feed_like_count, feed_view_count, feed_reg_date, feed_modify
+        FROM feed
+        <if test="type == 'title'">
+            WHERE feed_title LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'content'">
+            WHERE feed_content LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'tc'">
+            WHERE feed_title LIKE CONCAT('%', #{keyword}, '%')
+            OR feed_content LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        ORDER BY feed_board_no DESC
+        LIMIT #{pageStart}, #{amount}
+    </select>
+
+    <insert id="save">
+        INSERT INTO feed
+            (account_id, feed_title, feed_content)
+        VALUES (#{accountId}, #{feedTitle}, #{feedContent})
+    </insert>
+
+    <delete id="deleteFeed">
+        DELETE FROM feed
+        WHERE feed_board_no = #{feedBoardNo}
+    </delete>
+
+    <select id="findOne" resultType="feed">
+        SELECT
+        feed_board_no, feed_title,feed_content, feed_view_count,feed_reg_date, account_id
+        FROM feed
+        WHERE feed_board_no = #{feedboardNo}
+    </select>
+
+    <update id="modifyFeed">
+        UPDATE feed
+        SET feed_title = #{feedTitle}, feed_content = #{feedContent}, feed_modify = #{feedModify}
+        where feed_board_no = #{feedBoardNo};
+    </update>
+
+    <update id="upViewCount">
+        UPDATE feed
+        SET feed_view_count = feed_view_count + 1
+        WHERE feed_board_no = #{feedBoardNo};
+    </update>
+
+    <select id = "feedCount" resultType="int">
+        SELECT COUNT(*)
+        FROM feed
+        <if test="type == 'title'">
+            WHERE feed_title LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'content'">
+            WHERE feed_content LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'tc'">
+            WHERE feed_title LIKE CONCAT('%', #{keyword}, '%')
+            OR feed_content LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+    </select>
+</mapper>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.StampMapper">
+
+    <select id="stampCount" resultType="StampResponseDTO">
+        SELECT attend_count,board_count,banner_click_count
+        FROM stamp
+        WHERE account_id = #{accountId}
+
+    </select>
+
+<!--    스탬프 획득 방법 -->
+    <update id="stampUpdate">
+        UPDATE stamp
+        SET total_stamp_count = CASE
+        WHEN banner_click_count % 3 = 0 THEN total_stamp_count + 1
+        WHEN board_count % 3 = 0 THEN total_stamp_count + 1
+        WHEN attend_count % 1 = 0 THEN total_stamp_count + 1
+        ELSE total_stamp_count
+        END
+        WHERE account_id = #{accountId}
+    </update>
+
+<!--    배너 +1 시키는 쿼리-->
+    <update id="bannerPlus">
+        UPDATE stamp
+        SET banner_click_count = #{bannerClickCount} +1
+        WHERE account_id = #{accountId}
+    </update>
+
+<!--    게시판 작성시 +1-->
+    <update id="boardPlus">
+        UPDATE stamp
+        SET board_count = #{boardCount} +1
+        WHERE account_id = #{accountId}
+    </update>
+
+<!--     로그인여부 확인-->
+    <update id="booleanLogin">
+        UPDATE stamp
+        SET attend_count = #{attendCount} +1
+        WHERE account_id = #{accountId}
+    </update>
+
+
+
+
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.AccountMapper">
+
+<!--   회원정보 전체보기(관리자) -->
+    <select id="allAccount" resultType="Account">
+        SELECT account_id, password, name, gender, email, phone_no, address
+        FROM account
+
+
+    </select>
+
+<!--    회원정보 저장-->
+    <insert id="save">
+        INSERT INTO account
+        (account_id, password, name, gender, email, phone_no)
+        VALUES (#{accountId}, #{password}, #{name}, #{gender}, #{email}, #{phoneNo})
+
+    </insert>
+<!--    로그인-->
+    <select id="login" resultType="boolean">
+        SELECT account_id, password, name, gender, email, phone_no, address
+        FROM account
+        WHERE account_id = #{accountId}
+
+    </select>
+
+
+<!--    마이페이지  회원 정보-->
+    <select id="myInfo" resultType="Account">
+        SELECT account_id,password,name,gender,email,phone_no,address
+        FROM account
+        WHERE account_id = #{accountId}
+
+    </select>
+
+<!--    정보수정 dto 불러오기-->
+    <select id="searchInfoById" resultType="AccountModifyDTO">
+        SELECT password,email,phone_no,address
+        FROM account
+        WHERE account_id = #{accountId}
+
+    </select>
+
+    <update id="modifyInfo">
+        UPDATE account
+        SET password = #{password}, email = #{email}, phone_no = #{phoneNo} , address = #{address}
+        WHERE account_id = #{accountId}
+    </update>
+
+    <delete id="deleteInfo">
+        DELETE FROM account
+        WHERE account_id = #{accountId}
+
+    </delete>
+
+    <select id="isDuplicate" resultType="int">
+        SELECT COUNT(*)
+        FROM account
+        <if test= 'type eq "account_id"'>
+            WHERE account_id = #{keyword}
+        </if>
+        <if test= 'type eq "email"'>
+            WHERE email = #{keyword}
+        </if>
+    </select>
+
+    <update id="saveAutoLogin">
+        UPDATE account
+        SET session_id = #{sessionId},limit_time=#{limitTime}
+        WHERE account_id=#{accountId}
+    </update>
+
+    <select id="findMemberByCookie" >
+    
+    </select>
+
+
+
+</mapper>

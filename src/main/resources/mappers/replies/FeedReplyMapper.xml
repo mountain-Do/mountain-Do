@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.replymapper.FeedReplyMapper">
+
+    <insert id="register">
+        INSERT INTO feed_reply
+        (feed_board_no, feed_reply_content, feed_reply_writer)
+        VALUES
+        (#{feedBoardNo}, #{feedReplyContent}, #{feedReplyWriter})
+    </insert>
+
+    <update id="modify">
+        UPDATE feed_reply
+        SET feed_reply_content = #{feedReplyContent}
+        WHERE feed_reply_no = #{feedReplyNo}
+    </update>
+
+    <delete id="remove">
+        DELETE FROM feed_reply
+        WHERE feed_reply_no = #{feedReplyNo}
+    </delete>
+
+    <select id="findAll" resultType="feedReply">
+        SELECT
+            A.feed_reply_no, A.feed_reply_content, A.feed_reply_writer, A.feed_reply_date, B.feed_board_no
+        FROM feed_reply A, feed B
+        WHERE A.feed_board_no = B.feed_board_no
+        ORDER BY feed_reply_no
+        LIMIT #{p.pageStart}, #{p.amount}
+    </select>
+
+    <select id="findOne" resultType="feedReply">
+        SELECT
+            feed_reply_no, feed_reply_content, feed_reply_writer, feed_reply_date, feed_board_no
+        FROM feed_reply
+        WHERE feed_reply_no = #{feedReplyNo}
+    </select>
+
+</mapper>

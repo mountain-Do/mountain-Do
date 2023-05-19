@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.SecondhandBoardMapper">
+
+<!--  전체조회  -->
+<select id="findAll" resultType="secondhandBoard">
+    SELECT secondhand_board_no, account_id, secondhand_title,
+    secondhand_content,secondhand_view_count, secondhand_area,
+    secondhand_reg_date, secondhand_deal_type
+    From secondhand
+<!--    거래타입별 조회-->
+    <if test="type == 'secondhand_deal_type'">
+        WHERE secondhand_deal_type = #{secondhandDealType}
+    </if>
+    ORDER BY secondhand_board_no DESC
+    LIMIT #{pageStart},#{amount}
+</select>
+
+
+<!--  하나조회  -->
+    <select id="findOne" resultType="secondhandBoard">
+        SELECT secondhand_board_no, account_id, secondhand_title,
+        secondhand_content,secondhand_view_count, secondhand_area,
+        secondhand_reg_date, secondhand_deal_type
+        From secondhand
+        WHERE secondhand_board_no=#{boardNo}
+
+    </select>
+
+    <insert id="handWriteData">
+
+        INSERT INTO secondhand
+        (account_id,secondhand_title,secondhand_content,secondhand_area,secondhand_deal_type)
+        VALUES (#{accountId},#{secondhandTitle},#{secondhandContent},#{secondhandArea},#{secondhandDealType})
+    </insert>
+
+<!--   조회수 +1 증가 -->
+    <update id="plusViewCount">
+        UPDATE secondhand
+        SET secondhand_view_count = secondhand_view_count + 1
+        WHERE secondhand_board_no = #{boardNo}
+
+    </update>
+
+<!-- 전체 게시물 수 확인-->
+    <select id="count" resultType="int">
+        SELECT count(*)
+        FROM secondhand
+        <if test="type=='secondhand_deal_type'">
+            WHERE secondhand_deal_type = #{secondhandDealType}
+        </if>
+
+    </select>
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mountain.doo.repository.IssueMapper">
+    <!--    #{} 안에는 getter가 들어감-->
+
+
+    <select id="findAll" resultType="issue">
+        SELECT
+        issue_board_no, account_id, issue_title, issue_content, issue_like_count, issue_view_count, issue_reg_date, issue_modify
+        FROM issue
+        <if test="type == 'title'">
+            WHERE issue_title LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'content'">
+            WHERE issue_content LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        <if test="type == 'tc'">
+            WHERE issue_title LIKE CONCAT('%', #{keyword}, '%')
+            OR issue_content LIKE CONCAT('%', #{keyword}, '%')
+        </if>
+        ORDER BY issue_board_no DESC
+        LIMIT #{pageStart}, #{amount}
+    </select>
+
+    <insert id="save">
+        INSERT INTO issue
+            (account_id, issue_title, issue_content)
+        VALUES (#{accountId}, #{issueTitle}, #{issueContent})
+    </insert>
+
+    <delete id="deleteIssue">
+        DELETE FROM issue
+        WHERE issue_board_no = #{issueBoardNo}
+    </delete>
+
+    <select id="findOne" resultType="issue">
+        SELECT
+            issue_board_no, issue_title, issue_content, issue_view_count, issue_reg_date, account_id
+        FROM issue
+        WHERE issue_board_no = #{issueboardNo}
+    </select>
+
+    <update id="modifyIssue">
+        UPDATE issue
+        SET issue_title = #{issueTitle}, issue_content = #{issueContent}, issue_modify = #{issueModify}
+        where issue_board_no = #{issueBoardNo};
+    </update>
+
+</mapper>

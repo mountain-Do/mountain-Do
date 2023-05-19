@@ -1,0 +1,169 @@
+
+/* 이벤트창 전체 */
+.event-container {
+    margin: 100px auto;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid #000; */
+}
+
+.event-wrap {
+    margin: 30px auto;
+    padding: 30px;
+    width: 80%;
+    height: 1800px;
+    background:#3f3f3f;
+    border-radius: 10px;
+    /* border: 1px solid #000; */
+}
+
+/* 스탬프 맵 */
+.stamp-map {
+    width: 93%;
+    margin: 60px auto;
+    background:#fff;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+}
+.stamp-map .map-header {
+    height: 50px;
+    text-align: left;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 30px;
+}
+
+.stamp-map .map-main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.stamp-map .stamp-shape {
+    width: 85px;
+    height: 85px;
+
+    margin: 15px;
+    border-radius: 50%;
+    background-image: url("https://cdn-icons-png.flaticon.com/128/8610/8610016.png");
+    background-size: contain;
+}
+
+ .map-footer{
+    margin: 20px auto;
+    background: rgb(185, 185, 185);
+    box-shadow: 1px 1px 3px 1px rgba(60, 60, 60, 0.2);
+    width: 300px;
+    height: 60px;
+    border-radius: 20px;
+   
+    text-align: center;
+    line-height: 60px;
+
+    color: white;
+    font-size: 20px;
+}
+
+/* 내 스탬프 현황 */
+.my-stamp-wrap {
+    width: 93%;
+    height: 220px;
+    margin: 0 auto 30px;
+    border-radius: 10px;
+    background: #ffffff;
+}
+.my-stamp-wrap .my-stamp ul {
+    display: flex;
+}
+.my-stamp-wrap .my-stamp ul li {
+    width: 16%;
+    margin: 20px;
+    padding : 25px;
+    background: #ffffff;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.my-stamp img {
+    padding-top: 20px;
+    margin: 0 auto;
+    width: 60px;
+    height: 60px;
+}
+.my-stamp div {
+    padding-top: 20px;
+    width: 100px;
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+}
+.my-stamp .stamp-3rd div {
+    position: relative;
+}
+.my-stamp .stamp-3rd p {
+    font-size: 45px;
+}
+.my-stamp .stamp-3rd p:first-child {
+    color: #767676;
+    padding-right: 15px;
+}
+.my-stamp .stamp-3rd p:last-child {
+    padding-left: 15px;
+}
+#count-stamp {
+    padding-top: 20px;
+    color: #9d0f0f;
+    font-size: 48px;
+}
+
+/* 뽑기 카드 */
+.card-wrap {
+    width: 100%;
+    height: 200px;
+}
+.card-wrap .stamp-card ul{
+    width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.card-wrap .stamp-card ul li {
+    width: 27%;
+    height: 330px;
+    margin: 30px auto;
+    background: rgb(184, 184, 184);
+     /* border: 1px solid #000; */
+    border-radius: 10px;
+}
+.card-wrap .stamp-card ul li:first-child {
+    background: #dad60a;
+    color:#dad60a;
+    box-shadow: 2px 3px 3px 1px rgba(255, 255, 255, 0.3);
+}
+.card-wrap .stamp-card ul li:hover{
+    background: #dad60a;
+    color:#dad60a;
+    box-shadow: 2px 3px 3px 1px rgba(255, 255, 255, 0.3);
+}
+.card-wrap .stamp-card ul li div{
+    width: 80px;
+    height: 90px;
+    background: #ffffff;
+    border-radius: 10px;
+    margin: 50px auto;
+
+    color:  rgb(184, 184, 184);
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 80px;
+}
+.card-wrap .stamp-card ul li span{
+    display: block;
+    width: 100%;
+    color: #ffffff;
+    font-size: 35px;
+    text-align: center;
+}
