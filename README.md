@@ -58,7 +58,7 @@
 > 업데이트 사항 (2023.07.26 ~ )
  - 스탬프 기능 추가: 로그인 확인 스탬프, 배너 클릭 스탬프, 게시물 스탬프, 럭키 카드 획득 기능
 
- ![image](https://github.com/emilywin825/emilywin825/assets/102593109/d1ffd67a-677e-46a8-8b30-a9de506b4870) ➡️
-![image](https://github.com/emilywin825/emilywin825/assets/102593109/0d4b53ef-b28b-41c7-ac76-6ae270b40d4f)
+ ![image](https://github.com/emilywin825/emilywin825/assets/102593109/d1ffd67a-677e-46a8-8b30-a9de506b4870){: width="50" height="50"} ➡️
+![image](https://github.com/emilywin825/emilywin825/assets/102593109/0d4b53ef-b28b-41c7-ac76-6ae270b40d4f){: width="50" height="50"}
 
 
