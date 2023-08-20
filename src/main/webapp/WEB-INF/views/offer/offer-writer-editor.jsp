@@ -18,6 +18,7 @@
 
 <body>
     <%@ include file="../include/header.jsp" %>
+    
     <h1>추천정보 글쓰기(관리자 전용)</h1>
     <form action="/offer/offer-write" method="POST">
         <textarea name="text" id="editor"></textarea>
