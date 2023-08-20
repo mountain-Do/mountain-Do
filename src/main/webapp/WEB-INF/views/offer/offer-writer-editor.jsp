@@ -19,8 +19,9 @@
 <body>
     <%@ include file="../include/header.jsp" %>
     <h1>추천정보 글쓰기(관리자 전용)</h1>
-    <form action="/offer/offer-write" method="POST">
+    <form action="/offer/offer-writer-editor" method="POST" enctype="multipart/form-data">
         <textarea name="text" id="editor"></textarea>
+        <input type="file" name="imageFile">
         <div class="button-wrapper">
             <button class="submit-btn" type="submit">작성하기</button>
             <button class="close-btn" type="button" onclick="goOfferMain()">취소하기</button>
@@ -30,10 +31,16 @@
 <script>
     ClassicEditor.create(document.querySelector('#editor'), {
         language: "ko"
+    }).then(editor => {
+        window.editor = editor;
+        console.log("전숑전숑", editor);
+        
+    }).catch( error => {
+        console.error( error );
     });
     
     function goOfferMain() {
-        window.location.href = "/offer/offer-main"; // Replace this URL with your desired path
+        window.location.href = "/offer/offer-main";
     }
 </script>
 </html>
