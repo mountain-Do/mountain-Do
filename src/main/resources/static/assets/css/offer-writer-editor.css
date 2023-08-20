@@ -1,0 +1,63 @@
+body {
+    background-color: rgb(240, 240, 240);
+    padding: 200px;
+  }
+  
+  #editor {
+    margin-top: 350px;
+  }
+
+  #container {
+    width: 1000px;
+    margin: 20px auto;
+}
+h1 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+.ck-editor__editable[role="textbox"] {
+    /* editing area */
+    min-height: 200px;
+}
+.ck-editor__editable { 
+    height: 400px; 
+}
+.ck-content .image {
+    max-width: 80%;
+    margin: 20px auto;
+    font-size: 12px;
+}
+
+  
+  /* 작성, 취소 버튼 */
+  .button-wrapper {
+    margin-top: 20px;
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-around;
+  }
+/*   
+  .button-wrapper :nth-child(1) {
+    margin-bottom: 7px;
+  } */
+  
+  .submit-btn,
+  .close-btn {
+    padding: 5px 0;
+    width: 20%;
+    height: 40px;
+    /* font-size: 15px; */
+    background-color: rgb(197, 197, 197);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+    color: black;
+  }
+  
+  .submit-btn:hover,
+  .close-btn:hover {
+    background-color: #d5f462;
+    color: black;
+  }
