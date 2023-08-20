@@ -41,7 +41,7 @@ public class OfferController {
 
         Integer boardNo = offerService.findBoardNo("산 추천");
        log.info("boardNo = {}", boardNo);
-        if(boardNo==null) return "offer/offer-writer";
+        if(boardNo==null) return "offer/offer-writer-editor";
         OfferResponseDTO text = offerService.findText(boardNo);
         List<OfferImageResponseDTO> image = offerService.findImage(boardNo);
         log.info("산 추천 text : "+text);
@@ -62,7 +62,7 @@ public class OfferController {
 //        if(isNull==0) return "offer/offer-writer";
 
         Integer boardNo = offerService.findBoardNo("맛집 추천");
-        if(boardNo==null) return "offer/offer-writer";
+        if(boardNo==null) return "offer/offer-writer-editor";
 
         OfferResponseDTO text = offerService.findText(boardNo);
         List<OfferImageResponseDTO> image = offerService.findImage(boardNo);
@@ -75,7 +75,7 @@ public class OfferController {
 
     public String findOffer(String s){
         Integer isNull = offerService.findMountain(s);
-        if(isNull==null) return "offer/offer-writer";
+        if(isNull==null) return "offer/offer-writer-editor";
         else return "true";
     }
 
@@ -85,10 +85,10 @@ public class OfferController {
     public String write(){
         log.info("추천정보 글쓰기");
 
-        return "offer/offer-writer";
+        return "offer/offer-writer-editor";
     }
 
-    @PostMapping("/offer-write")
+    @PostMapping("/offer-writer-editor")
     public String postWrite(OfferWriteRequestDTO dto, HttpSession session) {
         log.info("글쓰기 완료 요청");
         log.info("OfferWriteRequestDTO : "+dto);
